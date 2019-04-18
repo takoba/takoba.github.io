@@ -1,0 +1,47 @@
+version: 2
+
+jobs:
+  deployment:
+    environment:
+      TZ: "/usr/share/zoneinfo/Asia/Tokyo"
+      CIRCLE_DEPLOY_REMOTE: "origin"
+      CIRCLE_DEPLOY_BRANCH: "master"
+
+    docker:
+      - image: circleci/node:lts-stretch-browsers-legacy
+
+    steps:
+      - checkout
+
+      - run:
+          name: init user to git repogitory
+          command: |
+            git config --global user.name 'circleci user'
+            git config --global user.email 'plane25+circleciuser@gmail.com'
+
+      - run:
+          name: Add docs/.circleci/config.yml to master branch
+          command: |
+            git checkout -b master
+            mkdir -p docs/.circleci
+            cp .circleci/config.yml docs/.circleci/
+            git add docs/.circleci/config.yml
+            git commit -m 'Add docs/.circleci/config.yml'
+
+      - run:
+          name: Update master branch
+          command: |
+            if git ls-remote $CIRCLE_DEPLOY_REMOTE | awk '{ print $2 }' | grep $CIRCLE_DEPLOY_BRANCH > /dev/null; then
+              git push $CIRCLE_DEPLOY_REMOTE :$CIRCLE_DEPLOY_BRANCH
+            fi
+            git subtree push --prefix docs/ $CIRCLE_DEPLOY_REMOTE $CIRCLE_DEPLOY_BRANCH
+
+workflows:
+  version: 2
+  deployment:
+    jobs:
+      - deployment:
+          filters:
+            branches:
+              only:
+                - develop
