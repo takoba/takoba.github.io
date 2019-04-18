@@ -5,6 +5,7 @@
   "repository": "https://github.com/takoba/takoba.github.io",
   "author": "takoba <plane25@gmail.com>",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "vuepress build ./src --dest ./docs",
     "dev": "vuepress dev ./src"
   },
