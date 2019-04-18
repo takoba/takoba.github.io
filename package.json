@@ -5,6 +5,7 @@
   "repository": "https://github.com/takoba/takoba.github.io",
   "author": "takoba <plane25@gmail.com>",
   "scripts": {
+    "build": "vuepress build ./src --dest ./docs",
     "dev": "vuepress dev ./src"
   },
   "license": "MIT",
