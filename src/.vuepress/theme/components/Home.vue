@@ -143,16 +143,17 @@ export default {
 
 @media (max-width: $MQMobile)
   .home
-    .features
-      flex-direction column
-    .feature
+    .contents
+      padding 1rem 2.5rem
       max-width 100%
-      padding 0 2.5rem
+      .features
+        flex-direction column
+      .feature
+        max-width 100%
+        padding 0 2.5rem
 
 @media (max-width: $MQMobileNarrow)
   .home
-    padding-left 1.5rem
-    padding-right 1.5rem
     .hero
       img
         max-height 210px
@@ -166,7 +167,10 @@ export default {
       .action-button
         font-size 1rem
         padding 0.6rem 1.2rem
-    .feature
-      h2
-        font-size 1.25rem
+    .contents
+      padding 0.6rem 1.2rem
+      max-width 100%
+      .feature
+        h2
+          font-size 1.25rem
 </style>
