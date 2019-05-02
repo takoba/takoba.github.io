@@ -2,7 +2,7 @@ module.exports = {
   base: '/',
 
   title: "takoba",
-  description: '',
+  description: 'Software Engineer OR UX Designer.',
 
   locales: {
     '/': {
