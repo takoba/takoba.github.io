@@ -1,7 +1,7 @@
 module.exports = {
   base: '/',
 
-  title: "takoba.github.io",
+  title: "takoba",
   description: '',
 
   locales: {
