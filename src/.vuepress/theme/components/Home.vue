@@ -24,28 +24,30 @@
       </p>
     </header>
 
-    <div
-      class="features"
-      v-if="data.features && data.features.length"
-    >
+    <section class="contents">
       <div
-        class="feature"
-        v-for="(feature, index) in data.features"
-        :key="index"
+        class="features"
+        v-if="data.features && data.features.length"
       >
-        <h2>{{ feature.title }}</h2>
-        <p>{{ feature.details }}</p>
+        <div
+          class="feature"
+          v-for="(feature, index) in data.features"
+          :key="index"
+        >
+          <h2>{{ feature.title }}</h2>
+          <p>{{ feature.details }}</p>
+        </div>
       </div>
-    </div>
 
-    <Content class="custom"/>
+      <Content class="custom"/>
 
-    <div
-      class="footer"
-      v-if="data.footer"
-    >
-      {{ data.footer }}
-    </div>
+      <div
+        class="footer"
+        v-if="data.footer"
+      >
+        {{ data.footer }}
+      </div>
+    </section>
   </main>
 </template>
 
@@ -72,12 +74,14 @@ export default {
 
 <style lang="stylus">
 .home
-  padding $navbarHeight 2rem 0
-  max-width 960px
-  margin 0px auto
+  padding $navbarHeight 0 0
+  margin "-%s" % $navbarHeight auto 0
   display block
   .hero
+    padding 4rem 0
     text-align center
+    background-color #159957
+    background-image linear-gradient(120deg, #155799, #159957)
     img
       max-width: 100%
       max-height 280px
@@ -85,13 +89,14 @@ export default {
       margin 3rem auto 1.5rem
     h1
       font-size 3rem
+    h1, .description
+      color #fff
     h1, .description, .action
       margin 1.8rem auto
     .description
       max-width 35rem
       font-size 1.6rem
       line-height 1.3
-      color lighten($textColor, 40%)
     .action-button
       display inline-block
       font-size 1.2rem
@@ -104,32 +109,37 @@ export default {
       border-bottom 1px solid darken($accentColor, 10%)
       &:hover
         background-color lighten($accentColor, 10%)
-  .features
-    border-top 1px solid $borderColor
-    padding 1.2rem 0
-    margin-top 2.5rem
-    display flex
-    flex-wrap wrap
-    align-items flex-start
-    align-content stretch
-    justify-content space-between
-  .feature
-    flex-grow 1
-    flex-basis 30%
-    max-width 30%
-    h2
-      font-size 1.4rem
-      font-weight 500
-      border-bottom none
-      padding-bottom 0
-      color lighten($textColor, 10%)
-    p
+  .contents
+    padding 0 1.2rem
+    max-width 960px
+    margin 0px auto
+    display block
+    .features
+      border-top 1px solid $borderColor
+      padding 1.2rem 0
+      margin-top 2.5rem
+      display flex
+      flex-wrap wrap
+      align-items flex-start
+      align-content stretch
+      justify-content space-between
+    .feature
+      flex-grow 1
+      flex-basis 30%
+      max-width 30%
+      h2
+        font-size 1.4rem
+        font-weight 500
+        border-bottom none
+        padding-bottom 0
+        color lighten($textColor, 10%)
+      p
+        color lighten($textColor, 25%)
+    .footer
+      padding 2.5rem
+      border-top 1px solid $borderColor
+      text-align center
       color lighten($textColor, 25%)
-  .footer
-    padding 2.5rem
-    border-top 1px solid $borderColor
-    text-align center
-    color lighten($textColor, 25%)
 
 @media (max-width: $MQMobile)
   .home
