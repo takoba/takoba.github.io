@@ -14,6 +14,7 @@ module.exports = {
     { name: 'viewport', content: 'width=device-width, initial-scale=1' },
   ],
   head: [
+    [ 'meta', { 'http-equiv': "Content-Security-Policy", content: "default-src 'self' 'unsafe-eval' 'unsafe-inline'; img-src *; child-src 'none';" } ],
     [ 'link', { rel: 'icon', href: '/favicon.ico' } ],
   ],
 
