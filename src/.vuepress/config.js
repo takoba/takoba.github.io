@@ -18,6 +18,12 @@ module.exports = {
     [ 'link', { rel: 'icon', href: '/favicon.ico' } ],
   ],
 
+  themeConfig: {
+    nav: [
+      { text: 'Home', link: '/' },
+    ],
+  },
+
   dest: './docs',
 
   port: 8088,
