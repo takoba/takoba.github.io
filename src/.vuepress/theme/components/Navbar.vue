@@ -1,5 +1,5 @@
 <template>
-  <header class="navbar">
+  <header class="navbar" :class="{ 'navbar__home': $page.frontmatter.home, 'navbar--bgTransparent': isThroughHeaderByScroll === false }" v-scroll>
     <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
 
     <router-link
@@ -47,7 +47,9 @@ export default {
 
   data () {
     return {
-      linksWrapMaxWidth: null
+      linksWrapMaxWidth: null,
+
+      isThroughHeaderByScroll: false,
     }
   },
 
@@ -64,6 +66,9 @@ export default {
     }
     handleLinksWrapWidth()
     window.addEventListener('resize', handleLinksWrapWidth, false)
+
+    this.handleScroll();
+    window.addEventListener('scroll', this.handleScroll);
   },
 
   computed: {
@@ -73,7 +78,23 @@ export default {
 
     isAlgoliaSearch () {
       return this.algolia && this.algolia.apiKey && this.algolia.indexName
-    }
+    },
+  },
+
+  methods: {
+    handleScroll() {
+      const isThroughHeaderByScroll = ($el) => {
+        let $header = document.querySelector('header.hero');
+        if (!$header) {
+          return false;
+        }
+        let transitionHeight = (($el) => {
+          return $header.offsetTop + $header.offsetHeight - $el.offsetHeight;
+        })($el);
+        return window.scrollY > transitionHeight;
+      };
+      this.isThroughHeaderByScroll = isThroughHeaderByScroll(this.$el);
+    },
   }
 }
 
@@ -102,7 +123,7 @@ $navbar-horizontal-padding = 1.5rem
   .site-name
     font-size 1.3rem
     font-weight 600
-    color #fff
+    color $textColor
     position relative
   .links
     padding-left 1.5rem
@@ -116,6 +137,48 @@ $navbar-horizontal-padding = 1.5rem
     .search-box
       flex: 0 0 auto
       vertical-align top
+  &.navbar__home
+    border-bottom 1px solid $borderColorHomeHeader
+    background-color #159957
+    background-image linear-gradient(120deg, #155799, #159957)
+    animation navbar--fadeIn 0.5s forwards
+    -webkit-animation navbar--fadeIn 0.5s forwards
+    &.navbar--bgTransparent
+      background-color transparent
+      background-image none
+      animation navbar--fadeOut 0.1s forwards
+      -webkit-animation navbar--fadeOut 0.1s forwards
+    .site-name
+      color $textColorHomeHeader
+
+@-webkit-keyframes navbar--fadeOut
+  from
+    background-color #159957
+    background-image linear-gradient(120deg, #155799, #159957)
+  to
+    background-color transparent
+    background-image none
+@keyframes navbar--fadeOut
+  from
+    background-color #159957
+    background-image linear-gradient(120deg, #155799, #159957)
+  to
+    background-color transparent
+    background-image none
+@-webkit-keyframes navbar--fadeIn
+  from
+    background-color transparent
+    background-image none
+  to
+    background-color #159957
+    background-image linear-gradient(120deg, #155799, #159957)
+@keyframes navbar--fadeIn
+  from
+    background-color transparent
+    background-image none
+  to
+    background-color #159957
+    background-image linear-gradient(120deg, #155799, #159957)
 
 @media (max-width: $MQMobile)
   .navbar

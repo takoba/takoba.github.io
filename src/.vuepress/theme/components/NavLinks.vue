@@ -132,6 +132,11 @@ export default {
       margin-left 0
   .repo-link
     margin-left 1.5rem
+.navbar__home .nav-links
+  a
+    color inherit
+    &:hover, &.router-link-active
+      color $accentColorHomeHeader
 
 @media (max-width: $MQMobile)
   .nav-links
@@ -142,6 +147,9 @@ export default {
   .nav-links a
     &:hover, &.router-link-active
       color $textColor
+  .navbar__home .nav-links a
+    &:hover, &.router-link-active
+      color $textColorHomeHeader
   .nav-item > a:not(.external)
     &:hover, &.router-link-active
       margin-bottom -2px
