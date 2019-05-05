@@ -1,12 +1,11 @@
 <template>
   <main class="home" aria-labelledby="main-title">
     <header class="hero">
-      <img
+      <img class="heroImage"
         v-if="data.heroImage"
         :src="$withBase(data.heroImage)"
         :alt="data.heroAlt || 'hero'"
       >
-
       <h1 v-if="data.heroText !== null" id="main-title">{{ data.heroText || $title || 'Hello' }}</h1>
 
       <p class="description">
@@ -84,9 +83,14 @@ export default {
     background-image linear-gradient(120deg, #155799, #159957)
     img
       max-width: 100%
-      max-height 280px
+      max-height 80px
       display block
       margin 3rem auto 1.5rem
+      &.heroImage
+        border-bottom-left-radius 9999px
+        border-bottom-right-radius 9999px
+        border-top-left-radius 9999px
+        border-top-right-radius 9999px
     h1
       font-size 3rem
     h1, .description
@@ -156,7 +160,6 @@ export default {
   .home
     .hero
       img
-        max-height 210px
         margin 2rem auto 1.2rem
       h1
         font-size 2rem
