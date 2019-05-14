@@ -1,5 +1,5 @@
 <template>
-  <header class="navbar" :class="{ 'navbar__home': $page.frontmatter.home, 'navbar--bgTransparent': $page.frontmatter.home && (scrollTop < getBgTransitionHeight()) }">
+  <header class="navbar" :class="{ 'navbar__home': $page.frontmatter.home, 'navbar--bgTransparent': $page.frontmatter.home && (isThroughHeaderByScroll === false) }">
     <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
 
     <router-link
@@ -48,7 +48,8 @@ export default {
   data () {
     return {
       linksWrapMaxWidth: null,
-      scrollTop: null,
+
+      isThroughHeaderByScroll: false,
     }
   },
 
@@ -66,8 +67,24 @@ export default {
     handleLinksWrapWidth()
     window.addEventListener('resize', handleLinksWrapWidth, false)
 
-    this.handleScroll();
-    window.addEventListener('scroll', this.handleScroll);
+    const getScrollTop = () => {
+      return document.documentElement.scrollTop || document.body.scrollTop;
+    }
+    const getBgTransitionHeight = () => {
+      let $header = document.querySelector('header.hero');
+      if (!$header) {
+        return 0;
+      }
+      return $header.offsetTop + $header.offsetHeight - this.$el.offsetHeight;
+    }
+    const handleScroll = () => {
+      const isThroughHeaderByScroll = () => {
+        return getScrollTop() > getBgTransitionHeight();
+      }
+      this.isThroughHeaderByScroll = isThroughHeaderByScroll();
+    }
+    handleScroll();
+    window.addEventListener('scroll', handleScroll);
   },
 
   computed: {
@@ -81,20 +98,6 @@ export default {
   },
 
   methods: {
-    handleScroll() {
-      this.scrollTop = this.getScrollTop();
-    },
-
-    getScrollTop() {
-      return document.documentElement.scrollTop || document.body.scrollTop;
-    },
-    getBgTransitionHeight() {
-      let $header = document.querySelector('header.hero');
-      if (!$header) {
-        return 0;
-      }
-      return $header.offsetTop + $header.offsetHeight - this.$el.offsetHeight;
-    },
   }
 }
 
