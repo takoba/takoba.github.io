@@ -140,28 +140,28 @@ $navbar-horizontal-padding = 1.5rem
   &.navbar__home
     border-bottom 1px solid $borderColorHomeHeader
     background-color #159957
-    background-image linear-gradient(120deg, #155799, #159957)
+    background-image linear-gradient(120deg, #15628E, #159957)
     animation navbar--fadeIn 0.5s forwards
     -webkit-animation navbar--fadeIn 0.5s forwards
     &.navbar--bgTransparent
       background-color transparent
       background-image none
-      animation navbar--fadeOut 0.1s forwards
-      -webkit-animation navbar--fadeOut 0.1s forwards
+      animation navbar--fadeOut 0.01s forwards
+      -webkit-animation navbar--fadeOut 0.01s forwards
     .site-name
       color $textColorHomeHeader
 
 @-webkit-keyframes navbar--fadeOut
   from
     background-color #159957
-    background-image linear-gradient(120deg, #155799, #159957)
+    background-image linear-gradient(120deg, #15628E, #159957)
   to
     background-color transparent
     background-image none
 @keyframes navbar--fadeOut
   from
     background-color #159957
-    background-image linear-gradient(120deg, #155799, #159957)
+    background-image linear-gradient(120deg, #15628E, #159957)
   to
     background-color transparent
     background-image none
@@ -171,14 +171,14 @@ $navbar-horizontal-padding = 1.5rem
     background-image none
   to
     background-color #159957
-    background-image linear-gradient(120deg, #155799, #159957)
+    background-image linear-gradient(120deg, #15628E, #159957)
 @keyframes navbar--fadeIn
   from
     background-color transparent
     background-image none
   to
     background-color #159957
-    background-image linear-gradient(120deg, #155799, #159957)
+    background-image linear-gradient(120deg, #15628E, #159957)
 
 @media (max-width: $MQMobile)
   .navbar
