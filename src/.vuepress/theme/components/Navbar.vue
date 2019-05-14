@@ -1,5 +1,5 @@
 <template>
-  <header class="navbar" :class="{ 'navbar__home': $page.frontmatter.home, 'navbar--bgTransparent': isThroughHeaderByScroll === false }" v-scroll>
+  <header class="navbar" :class="{ 'navbar__home': $page.frontmatter.home, 'navbar--bgTransparent': $page.frontmatter.home && (scrollTop < getBgTransitionHeight()) }">
     <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
 
     <router-link
@@ -48,8 +48,7 @@ export default {
   data () {
     return {
       linksWrapMaxWidth: null,
-
-      isThroughHeaderByScroll: false,
+      scrollTop: null,
     }
   },
 
@@ -83,17 +82,18 @@ export default {
 
   methods: {
     handleScroll() {
-      const isThroughHeaderByScroll = ($el) => {
-        let $header = document.querySelector('header.hero');
-        if (!$header) {
-          return false;
-        }
-        let transitionHeight = (($el) => {
-          return $header.offsetTop + $header.offsetHeight - $el.offsetHeight;
-        })($el);
-        return window.scrollY > transitionHeight;
-      };
-      this.isThroughHeaderByScroll = isThroughHeaderByScroll(this.$el);
+      this.scrollTop = this.getScrollTop();
+    },
+
+    getScrollTop() {
+      return document.documentElement.scrollTop || document.body.scrollTop;
+    },
+    getBgTransitionHeight() {
+      let $header = document.querySelector('header.hero');
+      if (!$header) {
+        return 0;
+      }
+      return $header.offsetTop + $header.offsetHeight - this.$el.offsetHeight;
     },
   }
 }
