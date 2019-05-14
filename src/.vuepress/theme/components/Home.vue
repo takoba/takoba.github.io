@@ -79,8 +79,8 @@ export default {
   .hero
     padding 4rem 0
     text-align center
-    background-color #159957
-    background-image linear-gradient(120deg, #155799, #159957)
+    background-color $homeHeader__bgColor
+    background-image $homeHeader__bgImage
     img
       max-width: 100%
       max-height 80px

@@ -111,7 +111,9 @@ $navbar-vertical-padding = 0.7rem
 $navbar-horizontal-padding = 1.5rem
 
 .navbar
-  background white
+  border-bottom 1px solid $navbar__borderColor
+  background-color $navbar__bgColor
+  background-image $navbar__bgImage
   padding $navbar-vertical-padding $navbar-horizontal-padding
   line-height $navbarHeight - 1.4rem
   a, span, img
@@ -124,7 +126,7 @@ $navbar-horizontal-padding = 1.5rem
   .site-name
     font-size 1.3rem
     font-weight 600
-    color $textColor
+    color $navbar__textColor
     position relative
   .links
     padding-left 1.5rem
@@ -139,47 +141,44 @@ $navbar-horizontal-padding = 1.5rem
       flex: 0 0 auto
       vertical-align top
   &.navbar__home
-    border-bottom 1px solid $borderColorHomeHeader
-    background-color #159957
-    background-image linear-gradient(120deg, #15628E, #159957)
-    animation navbar--fadeIn 0.5s forwards
-    -webkit-animation navbar--fadeIn 0.5s forwards
+    animation navbar__fadeIn 0.5s forwards
+    -webkit-animation navbar__fadeIn 0.5s forwards
     &.navbar--bgTransparent
       background-color transparent
       background-image none
-      animation navbar--fadeOut 0.01s forwards
-      -webkit-animation navbar--fadeOut 0.01s forwards
+      animation navbar__fadeOut 0.01s forwards
+      -webkit-animation navbar__fadeOut 0.01s forwards
     .site-name
-      color $textColorHomeHeader
+      color $navbar__textColor
 
-@-webkit-keyframes navbar--fadeOut
+@-webkit-keyframes navbar__fadeOut
   from
-    background-color #159957
-    background-image linear-gradient(120deg, #15628E, #159957)
+    background-color $navbar__bgColor
+    background-image $navbar__bgImage
   to
     background-color transparent
     background-image none
-@keyframes navbar--fadeOut
+@keyframes navbar__fadeOut
   from
-    background-color #159957
-    background-image linear-gradient(120deg, #15628E, #159957)
+    background-color $navbar__bgColor
+    background-image $navbar__bgImage
   to
     background-color transparent
     background-image none
-@-webkit-keyframes navbar--fadeIn
-  from
-    background-color transparent
-    background-image none
-  to
-    background-color #159957
-    background-image linear-gradient(120deg, #15628E, #159957)
-@keyframes navbar--fadeIn
+@-webkit-keyframes navbar__fadeIn
   from
     background-color transparent
     background-image none
   to
-    background-color #159957
-    background-image linear-gradient(120deg, #15628E, #159957)
+    background-color $navbar__bgColor
+    background-image $navbar__bgImage
+@keyframes navbar__fadeIn
+  from
+    background-color transparent
+    background-image none
+  to
+    background-color $navbar__bgColor
+    background-image $navbar__bgImage
 
 @media (max-width: $MQMobile)
   .navbar
