@@ -24,14 +24,7 @@ module.exports = {
     ],
   },
 
-  plugins: [
-    [ 'feed', {
-      canonical_base: 'https://takoba.github.io',
-    } ],
-  ],
-
   dest: './docs',
 
   port: 8088,
-
 }
