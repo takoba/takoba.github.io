@@ -11,7 +11,7 @@
     <v-main>
       <nuxt />
     </v-main>
-    <v-footer app color="transparent" padless>
+    <v-footer color="transparent" padless>
       <v-col cols="12" class="text-center">
         &copy; {{ new Date().getFullYear() }}
       </v-col>
