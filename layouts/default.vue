@@ -9,9 +9,7 @@
       ></v-progress-circular>
     </v-overlay>
     <v-main>
-      <v-container>
-        <nuxt />
-      </v-container>
+      <nuxt />
     </v-main>
     <v-footer app>
       <span>&copy; {{ new Date().getFullYear() }}</span>
