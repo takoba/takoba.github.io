@@ -13,7 +13,7 @@
     </v-container>
     <v-container fluid px-4 py-8 >
       <v-row>
-        <v-col cols="5" class="mx-auto">
+        <v-col cols="12" class="mx-auto" sm="6">
           <v-card>
             <v-list-item two-line>
               <v-list-item-content>
@@ -28,7 +28,7 @@
             </v-list-item>
           </v-card>
         </v-col>
-        <v-col cols="5" class="mx-auto">
+        <v-col cols="12" class="mx-auto" sm="6">
           <v-card>
             <v-list-item two-line>
               <v-list-item-content>
@@ -43,7 +43,7 @@
             </v-list-item>
           </v-card>
         </v-col>
-        <v-col cols="5" class="mx-auto">
+        <v-col cols="12" class="mx-auto" sm="6">
           <v-card>
             <v-list-item two-line>
               <v-list-item-content>
@@ -58,7 +58,7 @@
             </v-list-item>
           </v-card>
         </v-col>
-        <v-col cols="5" class="mx-auto">
+        <v-col cols="12" class="mx-auto" sm="6">
           <v-card>
             <v-list-item two-line>
               <v-list-item-content>
