@@ -1,17 +1,37 @@
 {
   "name": "takoba.github.io",
-  "version": "1.0.0",
+  "version": "2.0.0",
+  "private": true,
   "description": "https://takoba.github.io/",
-  "repository": "https://github.com/takoba/takoba.github.io",
+  "repository": "https://github.com/takoba/takoba.github.io.git",
   "author": "takoba <plane25@gmail.com>",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "vuepress build ./src --dest ./docs",
-    "dev": "vuepress dev ./src"
+    "dev": "nuxt-ts",
+    "build": "nuxt-ts build",
+    "start": "nuxt-ts start",
+    "generate": "nuxt-ts generate",
+    "lint:js": "eslint --ext .js,.vue --ignore-path .gitignore .",
+    "lint": "yarn lint:js"
   },
-  "license": "MIT",
+  "dependencies": {
+    "@nuxt/content": "^1.5.0",
+    "@nuxt/typescript-runtime": "^1.0.0",
+    "@nuxtjs/axios": "^5.12.0",
+    "@nuxtjs/pwa": "^3.0.0-beta.20",
+    "nuxt": "^2.14.0"
+  },
   "devDependencies": {
-    "vuepress": "^1.4.0",
-    "vuepress-plugin-feed": "^0.1.6"
+    "@nuxt/types": "^2.14.0",
+    "@nuxt/typescript-build": "^2.0.2",
+    "@nuxtjs/eslint-config": "^3.1.0",
+    "@nuxtjs/eslint-config-typescript": "^3.0.0",
+    "@nuxtjs/eslint-module": "^2.0.0",
+    "@nuxtjs/vuetify": "^1.11.2",
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.5.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-nuxt": "^1.0.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "prettier": "^2.0.5"
   }
 }
