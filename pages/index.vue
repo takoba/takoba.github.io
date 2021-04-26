@@ -11,25 +11,67 @@
         </v-col>
       </v-row>
     </v-container>
-    <v-container fluid px-4 py-8>
+    <v-container fluid px-4 py-8 >
       <v-row>
-        <v-col cols="4" class="mx-auto">
-          <v-list-item two-line>
-            <v-list-item-content>
-              <v-list-item-title>GitHub</v-list-item-title>
-              <v-list-item-subtitle>
-                <a href="https://github.com/takoba">https://github.com/takoba</a>
-              </v-list-item-subtitle>
-            </v-list-item-content>
-          </v-list-item>
-          <v-list-item two-line>
-            <v-list-item-content>
-              <v-list-item-title>Twitter</v-list-item-title>
-              <v-list-item-subtitle>
-                <a href="https://twitter.com/takoba_">https://twitter.com/takoba_</a>
-              </v-list-item-subtitle>
-            </v-list-item-content>
-          </v-list-item>
+        <v-col cols="5" class="mx-auto">
+          <v-card>
+            <v-list-item two-line>
+              <v-list-item-content>
+                <v-list-item-title>GitHub</v-list-item-title>
+                <v-list-item-subtitle>
+                  <a href="https://github.com/takoba">https://github.com/takoba</a>
+                </v-list-item-subtitle>
+              </v-list-item-content>
+              <v-list-item-avatar tile size="64">
+                <v-icon color="#000" size="64">mdi-github</v-icon>
+              </v-list-item-avatar>
+            </v-list-item>
+          </v-card>
+        </v-col>
+        <v-col cols="5" class="mx-auto">
+          <v-card>
+            <v-list-item two-line>
+              <v-list-item-content>
+                <v-list-item-title>Twitter</v-list-item-title>
+                <v-list-item-subtitle>
+                  <a href="https://twitter.com/takoba_">https://twitter.com/takoba_</a>
+                </v-list-item-subtitle>
+              </v-list-item-content>
+              <v-list-item-avatar tile size="64">
+                <v-icon color="#1DA1F2" size="64">mdi-twitter</v-icon>
+              </v-list-item-avatar>
+            </v-list-item>
+          </v-card>
+        </v-col>
+        <v-col cols="5" class="mx-auto">
+          <v-card>
+            <v-list-item two-line>
+              <v-list-item-content>
+                <v-list-item-title>Scrapbox</v-list-item-title>
+                <v-list-item-subtitle>
+                  <a href="https://scrapbox.io/takoba/">https://scrapbox.io/takoba/</a>
+                </v-list-item-subtitle>
+              </v-list-item-content>
+              <v-list-item-avatar tile size="64">
+                <v-icon color="#555" size="64">mdi-web</v-icon>
+              </v-list-item-avatar>
+            </v-list-item>
+          </v-card>
+        </v-col>
+        <v-col cols="5" class="mx-auto">
+          <v-card>
+            <v-list-item two-line>
+              <v-list-item-content>
+                <v-list-item-title>Weblog</v-list-item-title>
+                <v-list-item-subtitle>
+                  <a href="https://takoba.hatenablog.com/">https://takoba.hatenablog.com/_</a>
+                </v-list-item-subtitle>
+              </v-list-item-content>
+              <v-list-item-avatar tile size="64">
+                <v-icon color="#555" size="64">mdi-web</v-icon>
+              </v-list-item-avatar>
+            </v-list-item>
+          </v-card>
         </v-col>
       </v-row>
     </v-container>
