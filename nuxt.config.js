@@ -82,9 +82,6 @@ export default {
     path: '/sitemap.xml',
     hostname: 'https://takoba.github.io',
     exclude: ['/404'],
-    routes: [
-      '/',
-    ],
   },
   /*
    ** Build configuration
