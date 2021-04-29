@@ -51,6 +51,8 @@ export default {
     '@nuxtjs/pwa',
     // Doc: https://github.com/nuxt/content
     '@nuxt/content',
+
+    '@nuxtjs/sitemap',
   ],
   /*
    ** Axios module configuration
@@ -72,6 +74,17 @@ export default {
       themes: {
       },
     },
+  },
+  /*
+   ** Sitemap module configuration
+   */
+  sitemap: {
+    path: '/sitemap.xml',
+    hostname: 'https://takoba.github.io',
+    exclude: ['/404'],
+    routes: [
+      '/',
+    ],
   },
   /*
    ** Build configuration
