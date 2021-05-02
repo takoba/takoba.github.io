@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: 
+Sitemap: https://takoba.github.io/sitemap.xml
