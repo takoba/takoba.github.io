@@ -53,6 +53,7 @@ export default {
     '@nuxt/content',
 
     '@nuxtjs/sitemap',
+    '@nuxtjs/robots',
   ],
   /*
    ** Axios module configuration
@@ -82,6 +83,13 @@ export default {
     path: '/sitemap.xml',
     hostname: 'https://takoba.github.io',
     exclude: ['/404'],
+  },
+  /*
+   ** Robots module configuration
+   */
+  robots: {
+    UserAgent: '*',
+    Sitemap: 'https://takoba.github.io/sitemap.xml',
   },
   /*
    ** Build configuration
