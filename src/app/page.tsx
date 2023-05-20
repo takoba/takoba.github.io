@@ -1,11 +1,9 @@
-"use client"
-
 import React, { Suspense } from "react"
 import Image from "next/image"
 import NextLink from "next/link"
 import { Noto_Sans_Javanese } from "next/font/google"
-import { Link as MuiLink } from "@mui/material"
-import GitHubIcon from "@mui/icons-material/GitHub"
+
+import AccountList from "@/components/accountList"
 
 const notoSansJpH1 = Noto_Sans_Javanese({ subsets: ["latin"], weight: ["700"] })
 const notoSansJpH2 = Noto_Sans_Javanese({ subsets: ["latin"], weight: ["600"] })
@@ -49,22 +47,10 @@ const Home = (): JSX.Element => {
       <main>
         <Hero />
         <section
-          id="links"
+          id="accounts"
           className={`${notoSansJpText.className} w-full px-16 py-8`}
         >
-          <NextLink href="#links">
-            <Headline>Links</Headline>
-          </NextLink>
-          <div className="p-2 ml-4">
-            <ul className="list-disc">
-              <li>
-                <GitHubIcon className="mr-2" />
-                <MuiLink href="https://github.com/takoba" component={NextLink}>
-                  @takoba
-                </MuiLink>
-              </li>
-            </ul>
-          </div>
+          <AccountList />
         </section>
       </main>
       <footer>
