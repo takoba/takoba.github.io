@@ -1,10 +1,6 @@
-import EmotionRegistry from "@/lib/registry"
 import "./globals.css"
-
-export const metadata = {
-  title: "@takoba",
-  description: "Software Engineer OR UX Designer",
-}
+import EmotionRegistry from "@/lib/emotionRegistry"
+import GlobalStyles from "@/styles/globalStyles"
 
 export default function RootLayout({
   children,
@@ -13,6 +9,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="ja">
+      <GlobalStyles />
       <body>
         <EmotionRegistry>{children}</EmotionRegistry>
       </body>

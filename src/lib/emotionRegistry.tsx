@@ -2,11 +2,14 @@
 
 import React, { useState } from "react"
 import { useServerInsertedHTML } from "next/navigation"
-import { CacheProvider } from "@emotion/react"
+import { CacheProvider, EmotionCache } from "@emotion/react"
 import createCache from "@emotion/cache"
 
-const EmotionRegistry = ({ children }: { children: React.ReactNode }) => {
-  const [emotionCache] = useState(() => {
+type Props = {
+  children: React.ReactNode
+}
+const EmotionRegistry = ({ children }: Props): JSX.Element => {
+  const [emotionCache] = useState<EmotionCache>(() => {
     const emotionCache = createCache({ key: "css", prepend: true })
     emotionCache.compat = true
     return emotionCache

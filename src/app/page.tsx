@@ -11,12 +11,7 @@ const notoSansJpText = Noto_Sans_Javanese({ subsets: ["latin"] })
 
 const Hero = (): JSX.Element => (
   <>
-    <div
-      className="h-screen m-auto flex justify-end items-end"
-      style={{
-        backgroundColor: "#F9E5C0",
-      }}
-    >
+    <div className="h-screen m-auto flex justify-end items-end bg-amber-100">
       <Image
         src="/logo.svg"
         alt="takoba (signed by takoba)"
@@ -41,24 +36,27 @@ const Headline = ({ children }: React.PropsWithChildren): JSX.Element => (
   </h2>
 )
 
-const Home = (): JSX.Element => {
-  return (
-    <>
-      <main>
-        <Hero />
-        <section
-          id="accounts"
-          className={`${notoSansJpText.className} w-full px-16 py-8`}
-        >
-          <AccountList />
-        </section>
-      </main>
-      <footer>
-        <p className={`${notoSansJpText.className} w-full py-2 text-center`}>
-          ©2023 takoba
-        </p>
-      </footer>
-    </>
-  )
+const Home = (): JSX.Element => (
+  <>
+    <main>
+      <Hero />
+      <section
+        id="accounts"
+        className={`${notoSansJpText.className} w-full px-16 py-8`}
+      >
+        <AccountList />
+      </section>
+    </main>
+    <footer>
+      <p className={`${notoSansJpText.className} w-full py-2 text-center`}>
+        ©2023 takoba
+      </p>
+    </footer>
+  </>
+)
+
+export const metadata = {
+  title: "@takoba",
+  description: "Software Engineer OR UX Designer",
 }
 export default Home
