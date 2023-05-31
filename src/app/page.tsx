@@ -1,33 +1,12 @@
-import React, { Suspense } from "react"
-import Image from "next/image"
-import NextLink from "next/link"
+import React from "react"
 import { Noto_Sans_Javanese } from "next/font/google"
 
+import Hero from "@/components/hero"
 import AccountList from "@/components/accountList"
 
 const notoSansJpH1 = Noto_Sans_Javanese({ subsets: ["latin"], weight: ["700"] })
 const notoSansJpH2 = Noto_Sans_Javanese({ subsets: ["latin"], weight: ["600"] })
 const notoSansJpText = Noto_Sans_Javanese({ subsets: ["latin"] })
-
-const Hero = (): JSX.Element => (
-  <>
-    <div className="h-screen m-auto flex justify-end items-end bg-amber-100">
-      <Image
-        src="/logo.svg"
-        alt="takoba (signed by takoba)"
-        width={960}
-        height={360}
-        className="-rotate-3 p-4 absolute top-0 left-0"
-      />
-      <div className="p-4 mr-16">
-        <h1 className={`${notoSansJpH1.className} text-6xl`}>オバラタクヤ</h1>
-        <p className={`${notoSansJpText.className}`}>
-          Software Engineer OR UX Designer
-        </p>
-      </div>
-    </div>
-  </>
-)
 
 const Headline = ({ children }: React.PropsWithChildren): JSX.Element => (
   <h2 className={`${notoSansJpH2.className} text-2xl`}>
