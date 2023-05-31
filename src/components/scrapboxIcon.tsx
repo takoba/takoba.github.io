@@ -46,6 +46,9 @@ const ScrapboxIcon = (props: ScrapboxIconProps): JSX.Element => {
   const size = props.size ?? "medium"
   const { width, height } = areaCalculator(heightSettings, size)
 
+  const grayscale = css`
+    filter: grayscale(100%);
+  `
   const margin = css`
     margin: 0 ${(height - width) / 2}px;
   `
@@ -56,7 +59,7 @@ const ScrapboxIcon = (props: ScrapboxIconProps): JSX.Element => {
       alt="Scrapbox logo"
       width={width}
       height={height}
-      css={margin}
+      css={[margin, grayscale]}
     />
   )
 }
