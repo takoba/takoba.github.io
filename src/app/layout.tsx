@@ -2,11 +2,7 @@ import "./globals.css"
 import EmotionRegistry from "@/lib/emotionRegistry"
 import GlobalStyles from "@/styles/globalStyles"
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+const RootLayout = ({ children }: React.PropsWithChildren) => {
   return (
     <html lang="ja">
       <GlobalStyles />
@@ -16,3 +12,4 @@ export default function RootLayout({
     </html>
   )
 }
+export default RootLayout
