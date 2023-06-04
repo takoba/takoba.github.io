@@ -1,24 +1,20 @@
 /** @jsxImportSource @emotion/react */
 import React from "react"
 import Image from "next/image"
-import { css } from "@emotion/react"
 
-type ScrapboxIconSize = "small" | "medium" | "large" | "original"
-type ScrapboxIconProps = {
-  size?: ScrapboxIconSize
-}
+type SizePattern = "small" | "medium" | "large" | "original"
 
 type Area = {
   width: number
   height: number
 }
-type HeightSettings = {
-  [key in ScrapboxIconSize]: Area["height"]
-}
-
 const original: Area = {
   width: 114,
   height: 172,
+}
+
+type HeightSettings = {
+  [key in SizePattern]: Area["height"]
 }
 const heightSettings: HeightSettings = {
   small: 20,
@@ -42,16 +38,20 @@ const areaCalculator = (
   }
 }
 
-const ScrapboxIcon = (props: ScrapboxIconProps): JSX.Element => {
+const grayscale: React.CSSProperties = {
+  filter: "grayscale(100%)",
+}
+
+type Props = {
+  size?: SizePattern
+}
+const ScrapboxIcon = (props: Props): JSX.Element => {
   const size = props.size ?? "medium"
   const { width, height } = areaCalculator(heightSettings, size)
 
-  const grayscale = css`
-    filter: grayscale(100%);
-  `
-  const margin = css`
-    margin: 0 ${(height - width) / 2}px;
-  `
+  const margin: React.CSSProperties = {
+    margin: `0 ${(height - width) / 2}px`,
+  }
 
   return (
     <Image
@@ -59,7 +59,7 @@ const ScrapboxIcon = (props: ScrapboxIconProps): JSX.Element => {
       alt="Scrapbox logo"
       width={width}
       height={height}
-      css={[margin, grayscale]}
+      style={{ ...margin, ...grayscale }}
     />
   )
 }
