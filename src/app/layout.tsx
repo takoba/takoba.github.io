@@ -1,4 +1,5 @@
 import "./globals.css"
+import { Metadata } from "next"
 import EmotionRegistry from "@/lib/emotionRegistry"
 import GlobalStyles from "@/styles/globalStyles"
 
@@ -11,5 +12,9 @@ const RootLayout = ({ children }: React.PropsWithChildren) => {
       </body>
     </html>
   )
+}
+
+export const metadata: Metadata = {
+  metadataBase: new URL(process.env.HOST ?? "http://localhost:3000"),
 }
 export default RootLayout
