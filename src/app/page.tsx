@@ -42,6 +42,7 @@ export const metadata: Metadata = {
     title: "@takoba",
   },
   twitter: {
+    card: "summary_large_image",
     title: "@takoba",
   },
 }
