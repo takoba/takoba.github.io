@@ -56,7 +56,7 @@ const Hero = (): JSX.Element => (
           オバラタクヤ
         </h1>
         <p
-          className={`${notoSansJpText.className} mr-2`}
+          className={`${notoSansJpText.className}`}
           style={{ ...subtitleFontSizeStyle }}
         >
           Software Engineer OR UX Designer
