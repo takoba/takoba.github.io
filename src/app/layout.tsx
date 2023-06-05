@@ -4,7 +4,7 @@ import GlobalStyles from "@/styles/globalStyles"
 
 const RootLayout = ({ children }: React.PropsWithChildren) => {
   return (
-    <html lang="ja">
+    <html lang="ja" className="min-w-min">
       <GlobalStyles />
       <body>
         <EmotionRegistry>{children}</EmotionRegistry>
