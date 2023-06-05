@@ -49,6 +49,10 @@ const ScrapboxIcon = (props: Props): JSX.Element => {
   const size = props.size ?? "medium"
   const { width, height } = areaCalculator(heightSettings, size)
 
+  const min: React.CSSProperties = {
+    minWidth: `${width}px`,
+    minHeight: `${height}px`,
+  }
   const margin: React.CSSProperties = {
     margin: `0 ${(height - width) / 2}px`,
   }
@@ -59,7 +63,7 @@ const ScrapboxIcon = (props: Props): JSX.Element => {
       alt="Scrapbox logo"
       width={width}
       height={height}
-      style={{ ...margin, ...grayscale }}
+      style={{ ...min, ...margin, ...grayscale }}
     />
   )
 }
