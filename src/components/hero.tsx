@@ -44,7 +44,7 @@ const Logo = (): JSX.Element => (
 const Hero = (): JSX.Element => (
   <>
     <div
-      className="m-auto flex justify-end items-end"
+      className="m-auto flex justify-end items-end relative overflow-x-hidden"
       style={{ ...bgColorStyle, ...containerAreaStyle }}
     >
       <Logo />
