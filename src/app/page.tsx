@@ -1,4 +1,5 @@
 import React from "react"
+import { Metadata } from "next"
 import { Noto_Sans_Javanese } from "next/font/google"
 
 import Hero from "@/components/hero"
@@ -34,7 +35,7 @@ const Home = (): JSX.Element => (
   </>
 )
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "@takoba",
   description: "Software Engineer OR UX Designer",
 }
