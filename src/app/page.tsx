@@ -38,5 +38,11 @@ const Home = (): JSX.Element => (
 export const metadata: Metadata = {
   title: "@takoba",
   description: "Software Engineer OR UX Designer",
+  openGraph: {
+    title: "@takoba",
+  },
+  twitter: {
+    title: "@takoba",
+  },
 }
 export default Home
