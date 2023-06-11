@@ -32,11 +32,11 @@ const subtitleFontSizeStyle: React.CSSProperties = {
 const Logo = (): JSX.Element => (
   <>
     <Image
-      src="/logo.svg"
+      src="/logo@2x.svg"
       alt="takoba (signed by takoba)"
-      width={960}
-      height={360}
-      className="-rotate-3 p-4 absolute top-0 left-0"
+      width={1080}
+      height={405}
+      className="max-w-full h-auto -rotate-3 p-4 absolute top-0 left-0"
     />
   </>
 )
