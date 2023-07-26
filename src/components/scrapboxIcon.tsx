@@ -1,8 +1,6 @@
 import React from "react"
 import Image from "next/image"
 
-type SizePattern = "small" | "medium" | "large" | "original"
-
 type Area = {
   width: number
   height: number
@@ -12,48 +10,52 @@ const original: Area = {
   height: 172,
 }
 
-type HeightSettings = {
-  [key in SizePattern]: Area["height"]
-}
-const heightSettings: HeightSettings = {
-  small: 20,
-  medium: 24,
-  large: 34,
-  original: original.height,
-}
-
 const areaCalculator = (
-  settings: HeightSettings,
-  size: keyof HeightSettings
+  num: number
 ): Area => {
-  if (size === "original") {
-    return original
-  }
   const { width, height } = original
 
   return {
-    width: settings[size] * (width / height),
-    height: settings[size],
+    width:  num * (width / height),
+    height: num,
   }
 }
+
+const sizeParser = (size: string|number): [number, string] => {
+  if (typeof size === "number") {
+    return [size, ""]
+  }
+  if (size.match(/^\d+$/)) {
+    return [Number(size), '']
+  }
+
+  const matched = size.match(/[a-z]+$/)
+  if (!matched) {
+    throw new Error('Unexpected value: size')
+  }
+  const [unit] = matched
+
+  return [Number(size.slice(0, 0 - unit.length)), unit]
+}
+
 
 const grayscale: React.CSSProperties = {
   filter: "grayscale(100%)",
 }
 
 type Props = {
-  size?: SizePattern
+  size?: string | number
 }
-const ScrapboxIcon = (props: Props): JSX.Element => {
-  const size = props.size ?? "medium"
-  const { width, height } = areaCalculator(heightSettings, size)
+const ScrapboxIcon = ({size}: Props): JSX.Element => {
+  const [num, unit] = sizeParser(size ?? "1em")
+  const { width, height } = areaCalculator(num)
 
   const min: React.CSSProperties = {
-    minWidth: `${width}px`,
-    minHeight: `${height}px`,
+    minWidth: `${width}${unit}`,
+    minHeight: `${height}${unit}`,
   }
   const margin: React.CSSProperties = {
-    margin: `0 ${(height - width) / 2}px`,
+    margin: `0 ${(height - width) / 2}${unit}`,
   }
 
   return (
