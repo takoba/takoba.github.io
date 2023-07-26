@@ -5,7 +5,6 @@ import { Noto_Sans_Javanese } from "next/font/google"
 import Hero from "@/components/hero"
 import AccountList from "@/components/accountList"
 
-const notoSansJpH1 = Noto_Sans_Javanese({ subsets: ["latin"], weight: ["700"] })
 const notoSansJpH2 = Noto_Sans_Javanese({ subsets: ["latin"], weight: ["600"] })
 const notoSansJpText = Noto_Sans_Javanese({ subsets: ["latin"] })
 

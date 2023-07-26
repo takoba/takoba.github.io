@@ -1,6 +1,3 @@
-/** @jsxImportSource @emotion/react */
-"use client"
-
 import React from "react"
 import Image from "next/image"
 import { Noto_Sans_Javanese } from "next/font/google"
